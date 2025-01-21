@@ -1,19 +1,19 @@
-class Xfconf < Formula
-  desc "D-Bus-based configuration storage system for Xfce"
+class Libxfce4ui < Formula
+  desc "Widgets library for the Xfce desktop environment"
   homepage "https://xfce.org"
-  url "https://archive.xfce.org/src/xfce/xfconf/4.20/xfconf-4.20.0.tar.bz2"
-  sha256 "8bc43c60f1716b13cf35fc899e2a36ea9c6cdc3478a8f051220eef0f53567efd"
-  license "GPL-2.0-or-later"
+  url "https://archive.xfce.org/src/xfce/libxfce4ui/4.20/libxfce4ui-4.20.0.tar.bz2"
+  sha256 "75e8996984f20375aadecd5c16f5147c211ed0bd26d7861ab0257561eb76eaee"
+  license "LGPL-2.0-only"
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libxfce4util"
+  depends_on "xfconf"
 
   def install
     system "./configure",
            "--disable-debug",
-           "--disable-visibility",
            "--prefix=#{prefix}"
     system "make", "install"
   end
