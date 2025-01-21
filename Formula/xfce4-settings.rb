@@ -23,6 +23,7 @@ class Xfce4Settings < Formula
            "--disable-wayland",
            "--disable-x11",
            "--disable-visibility",
+           "--disable-gio-unix",
            "--prefix=#{prefix}"
     system "make", "install"
   end
