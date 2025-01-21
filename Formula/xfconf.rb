@@ -17,6 +17,7 @@ class Xfconf < Formula
 
     system "./configure",
            "--disable-debug",
+           "--disable-visibility",
            "--prefix=#{prefix}"
     system "make", "install"
   end
