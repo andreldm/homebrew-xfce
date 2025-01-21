@@ -8,9 +8,9 @@ class Libxfce4ui < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gtk+3"
   depends_on "libxfce4util"
   depends_on "xfconf"
-  depends_on "gtk+3"
 
   patch :DATA
 
