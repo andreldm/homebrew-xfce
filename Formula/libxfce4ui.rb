@@ -10,10 +10,16 @@ class Libxfce4ui < Formula
   depends_on "glib"
   depends_on "libxfce4util"
   depends_on "xfconf"
+  depends_on "gtk+3"
+
+  patch :DATA
 
   def install
     system "./configure",
            "--disable-debug",
+           "--disable-wayland",
+           "--disable-x11",
+           "--disable-visibility",
            "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -22,3 +28,18 @@ class Libxfce4ui < Formula
     system "true" # TODO
   end
 end
+
+__END__
+--- configure.orig	2025-01-21 18:52:05
++++ configure	2025-01-21 18:52:11
+@@ -19355,9 +19355,7 @@
+ fi
+
+
+-if test x"$ENABLE_X11" != x"yes" -a x"$ENABLE_WAYLAND" != x"yes"; then
+-  as_fn_error $? "Either both X11 and Wayland support was disabled, or required dependencies are missing. One of the two must be enabled." "$LINENO" 5
+-fi
++
+
+ if test x"$ENABLE_X11" != x"yes"; then
+     enable_libsm=no
