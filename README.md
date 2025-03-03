@@ -25,8 +25,7 @@ dbus-daemon --session --nofork --address "$DBUS_SESSION_BUS_ADDRESS"
 
 And add to your `.bashrc` or `.zshrc` (or whatever shell you use rc file):
 ```bash
-mkdir -p /tmp/dbus
-export DBUS_SESSION_BUS_ADDRESS="unix:path=/tmp/dbus/$USER.session.usock,guid=d0af79a44c000ce7985797ba649dbc05"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/tmp/$USER.session.usock,guid=d0af79a44c000ce7985797ba649dbc05"
 export GTK_THEME=Greybird
 ```
 
